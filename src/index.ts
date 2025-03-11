@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { logger } from 'hono/logger';
 import { cors } from 'hono/cors';
 import D1test from "./routes/D1test";
+import FirestoreTest from "./routes/FirestoreTest";
 
 const app = new Hono()
 
@@ -16,7 +17,7 @@ app.use(
 app.get('/', (c) => {
   return c.text('Hello Hono!')
 })
-app.route('/api' , D1test);
+app.route('/api' , FirestoreTest);
 
 app.onError((err, c) => {
   return c.json(
